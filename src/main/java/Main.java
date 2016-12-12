@@ -18,16 +18,37 @@ public class Main {
   public static void main(String[] args) {
 
     port(Integer.valueOf(System.getenv("PORT")));
-    staticFileLocation("/public");
+    staticFileLocation("/spark/template/freemarker");
 
-    get("/hello", (req, res) -> "Hello World");
+    // get("/hello", (req, res) -> "Hello World");
 
     get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            attributes.put("message", "Hello World!");
+            // attributes.put("message", "Hello World!");
 
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());
+
+
+    get("/category", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "category.ftl");
+    }, new FreeMarkerEngine());
+    get("/contact", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "contact.ftl");
+    }, new FreeMarkerEngine());
+    get("/login", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "login.ftl");
+    }, new FreeMarkerEngine());
+    get("/register", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "register.ftl");
+    }, new FreeMarkerEngine());
+    
+
+
 
     get("/db", (req, res) -> {
       Connection connection = null;

@@ -1,33 +1,59 @@
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
-  <div class="container">
-    <ul class="nav navbar-nav">
-      <li class="active">
-        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
-      </li>
-      <li>
-        <a href="https://devcenter.heroku.com/articles/how-heroku-works"><span class="glyphicon glyphicon-user"></span> How Heroku Works</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-info-sign"></span> Getting Started Guides <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-ruby">Getting Started with Ruby on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs">Getting Started with Node on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-php">Getting Started with PHP on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-java">Getting Started with Java on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-go">Getting Started with Go on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-clojure">Getting Started with Clojure on Heroku</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-scala">Getting Started with Scala on Heroku</a></li>
-            <li class="divider"></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-heroku-and-connect-without-local-dev">Getting Started on Heroku with Heroku Connect</a></li>
-            <li><a href="https://devcenter.heroku.com/articles/getting-started-with-jruby">Getting Started with Ruby on Heroku (Microsoft Windows)</a></li>
-          </ul>
-      </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="navbar-right">
-        <a href="https://devcenter.heroku.com"><span class="glyphicon glyphicon-book"></span> Heroku Dev Center</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+     <nav>
+				<ul>
+
+          <li>
+              <a title="FinanceHome" href="index.html">Finace Home</a>
+          </li>
+
+					<li>
+					    <a  title="Stocks" href="#">Stocks</a>
+					    <ul>
+					    	<li>
+					    		<a title="Stocks:Gainers" href="#">Stocks:Gainers</a>
+					    	</li>
+					    	<li>
+					    		<a title="Stocks:Losers" href="#">Stocks:Losers</a>
+					    	</li>
+					    </ul>
+					</li>
+					
+					<li>
+					    <a title="My Portfolio" href="login.html">My Portfolio</a>
+					</li>
+          
+          <li>
+					    <a title="Industry News" href="funny.html">Industry News</a>
+					    <ul>
+					    	<li>
+					    		<a title="Energy" href="#">Energy</a>
+					    	</li>
+					    	<li>
+					    		<a title="Financial" href="#">Financial</a>
+					    	</li>
+                <li>
+					    		<a title="Healthcare" href="#">Healthcare</a>
+					    	</li>
+                <li>
+					    		<a title="Business Service" href="#">Business Service</a>
+					    	</li>
+                <li>
+					    		<a title="Telecom & Utilities" href="#">Telecom & Utilities</a>
+					    	</li>
+                <li>
+					    		<a title="Computer Hardware & Electronics" href="#">Computer Hardware & Electronics</a>
+					    	</li>
+                <li>
+					    		<a title="Computer Software & Services" href="#">Computer Software & Services</a>
+					    	</li>
+                <li>
+					    		<a title="Industrials" href="#">Industrials</a>
+					    	</li>
+					    </ul>
+					</li>
+
+					<li>
+					    <a title="Contact Us" href="contact.html">Contact Us</a>
+					</li>
+
+				</ul>
+			</nav>
