@@ -39,7 +39,7 @@
     </fieldset>
 
     <button type="submit" onclick=registerCheck()>Register</button>
-    <p>If you already have an account, please <a href="login.html">login</a></p>
+    <p>If you already have an account, please <a href="login.ftl">login</a></p>
   </form>
 </section>
 

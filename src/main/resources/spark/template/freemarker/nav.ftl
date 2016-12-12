@@ -18,11 +18,11 @@
 					</li>
 					
 					<li>
-					    <a title="My Portfolio" href="login.html">My Portfolio</a>
+					    <a title="My Portfolio" href="login.ftl">My Portfolio</a>
 					</li>
           
           <li>
-					    <a title="Industry News" href="funny.html">Industry News</a>
+					    <a title="Industry News" href="#">Industry News</a>
 					    <ul>
 					    	<li>
 					    		<a title="Energy" href="#">Energy</a>
@@ -52,7 +52,7 @@
 					</li>
 
 					<li>
-					    <a title="Contact Us" href="contact.html">Contact Us</a>
+					    <a title="Contact Us" href="contact.ftl">Contact Us</a>
 					</li>
 
 				</ul>
