@@ -17,8 +17,12 @@ public class Main {
 
   public static void main(String[] args) {
 
+    Gson gson = new Gson();
+
     port(Integer.valueOf(System.getenv("PORT")));
     staticFileLocation("/spark/template/freemarker");
+    externalStaticFileLocation("/public/index.html");
+
     get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             // attributes.put("message", "Hello World!");
@@ -44,6 +48,46 @@ public class Main {
             return new ModelAndView(attributes, "register.ftl");
     }, new FreeMarkerEngine());
     
+
+    post("/insert_users", (request, response) -> {
+
+      String firstName = request.queryParams("firstname");
+      String lastName = request.queryParams("lastname");
+      String email = request.queryParams("email");
+      String password = request.queryParams("password");
+
+      Connection connection = null;
+      PreparedStatement pst = null;
+
+      Map<String, Object> attributes = new HashMap<>();
+
+      try{
+
+        connection = DatabaseUrl.extract().getConnection();
+        String sql = "INSERT INTO users(firstName, lastName, email, password) VALUES(?, ?, ?, ?)";
+        pst = connection.prepareStatement(sql);
+
+        pst.setString(1, firstName);
+        pst.setString(2, lastName);
+        pst.setString(3, email);
+        pst.setString(4, password);
+
+        pst.executeUpdate();
+
+        attributes.put("message", "Thank you for registering");
+        
+        return new ModelAndView(attributes, "error.ftl");
+      } catch (Exception e){
+        attributes.put("message", "There was an error" + e);
+        return new ModelAndView(attributes, "error.ftl");
+      } finally {
+        if (connection != null) try{connection.close();} catch(SQLException e){}
+      }
+    }, new FreeMarkerEngine());
+
+
+
+
 
 
 
