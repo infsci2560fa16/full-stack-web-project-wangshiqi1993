@@ -1,0 +1,164 @@
+
+#page { max-width: 1110px; margin: 0 auto; position: relative;}
+
+/* Text */
+* {
+  margin:0;
+  padding:0;
+  outline:none;
+  list-style:none;
+  text-decoration:none;
+  box-sizing:border-box;
+  color:#111;
+  background: transparent;
+  border:none;
+}
+body {
+  background: #FFF;
+  font-family: 'Hind', sans-serif;
+}
+
+h1 {
+  margin: .5em 0;
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin: 1.5em 0 .5em;
+}
+h3 {
+  font-size: 1.3em;
+  margin: 1em 0 .5em;
+}
+
+p {
+  color: var(--color-primary);
+  line-height: 1.5;
+}
+
+a{ color: #0073ff;}
+a:visited {color:#65b1ff;}
+
+a.btn {font-size: 0.7em; color: #fff; border:1px solid #fff; padding: 3px 12px; }
+a.btn:hover {background-color: rgba(0,0,0,.5);}
+
+
+/* Header */
+
+header { height: 450px; 
+	     background: #fff url(../images/header.jpg) no-repeat center bottom; 
+	     position: relative;   
+         
+           
+     }
+
+header a.logo { z-index: 1;
+                position:absolute;
+                display: block; width: 140px; height: 66px;
+                
+}
+header a.btn {
+                z-index: 1;
+                position:relative;
+                top:0px; left: 800px;
+                float:left;
+                display:block;
+              }
+
+header div.hero {position: absolute; width :28%; top:80px; left: 60%; }
+header div.hero h2 {margin: 0 0 30px 0; color: #fff;}
+
+/*section */
+section {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 2em;
+  font-size: var(--font-size);
+}
+
+
+/*Navigation */
+nav {
+    background-color: rgba(0,0,0,.65);
+    position: absolute;
+    top: 0px; left:0px;
+    padding: 30px 0 0 0;
+    width: 100%;
+
+}
+nav::after {content:''; display:block; clear:both;}
+
+nav ul { list-style: none; margin:0; padding:0px; }
+
+nav ul li:hover{ background-color: #003366;}
+nav ul li:hover > ul { display: block;}
+nav ul li a {
+    display: inline-block;
+    color:#fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    width:125px;
+    position: relative;
+}
+
+nav ul li a:visited { color: #fff;}
+nav ul li a:hover { background-color: #0099ff;}
+
+nav ul ul { position: absolute; top:100%; background-color:  #003366; display: none;}
+nav ul ul li{ position: relative; }
+nav ul ul ul { left: 100%; top:0px;}
+
+/* top level nav*/
+nav > ul { padding-left: 100px; }
+nav > ul > li { float:left;}
+nav > ul > li > a {width: auto; padding:10px 20px 15px 20px;}
+
+
+
+
+section.card form fieldset {
+  margin: 10px 0;
+}
+
+section.card div.textintro h1 {
+  margin: .5;
+  padding: .5;
+  margin-top: 20px;
+}
+
+section.card {
+  background: white;
+  width: 100%;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 40px;
+  text-align: center;
+  position: relative;
+  opacity: .95;
+  border-radius: 4px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+
+button{
+    background: var(--color-accent);
+    border: 1px solid;
+    color: #000000;
+    padding: 3px 12px;
+    margin: 1em 0;
+  }
+
+  /*  section-info */
+section.info {margin-top:0; margin-bottom:30px; padding:0;}
+section.info aside {width:33%; float: left; text-align:top;}
+
+section.info .content {margin:15px; background: no-repeat center top; background-size: 75px 75px; padding-top: 10px;}
+
+section.info aside h3 a { color: #000; text-decoration: none;}
+section.info aside h3 a:hover { text-decoration: underline;}
+
+section.info aside .content.topic1 {background-image: url(../images/icon_star.svg);}
+section.info aside .content.topic2 {background-image: url(../images/icon_marker.svg);}
+section.info aside .content.topic3 {background-image: url(../images/icon_gear.svg);}
+
