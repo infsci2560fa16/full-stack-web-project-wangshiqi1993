@@ -1,6 +1,6 @@
 	<meta charset="UTF-8">
 	<title>Orient Futures</title>
-	<link rel="stylesheet" type="text/css" href="stylesheets/screen.css">
+	<link rel="stylesheet" type="text/css" href="public/stylesheets/screen.css">
 	<style>
 	body {
 			font-family: Trirong, serif;
