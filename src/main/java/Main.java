@@ -131,7 +131,7 @@ get("/check_login", (request, response) -> {
     }, new FreeMarkerEngine());
 
 
-    get("/db", (req, res) -> {
+    get("/db_users", (req, res) -> {
       Connection connection = null;
       Map<String, Object> attributes = new HashMap<>();
         try {
@@ -158,6 +158,38 @@ get("/check_login", (request, response) -> {
         }
     }, new FreeMarkerEngine());
 
+    get("/db_stocks", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          //heroku pg:psql
+          //CREATE TABLE stocks(name VARCHAR(255),price FLOAT,gorl VARCHAR(10), volumn FLOAT,change FLOAT);
+          //INSERT INTO stocks(name,price,gorl,volumn,change) VALUES ('USEG',2.52,'G',24637,78.85);
+          //INSERT INTO stocks(name,price,gorl,volumn,change) VALUES ('GLF',2.10,'G',443998,23.24);
+          //INSERT INTO stocks(name,price,gorl,volumn,change) VALUES ('OPGN',1.25,'G',260282,14.68);
+          //INSERT INTO stocks(name,price,gorl,volumn,change) VALUES ('PRTO',2.62,'L',37-51,73.48);
+          ResultSet rss = stmts.executeQuery("SELECT * FROM stocks");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) {
+            outputs.add( "Name: " + rss.getString("name"));
+            outputs.add( "Price: " + rss.getInt("price"));
+            outputs.add( "Gainer/Loser: " + rss.getString("gorl"));
+            outputs.add( "Volumn: " + rss.getInt("volumn"));
+            outputs.add( "% Change:" + rss.getInt("change") + "%");
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
 
   }
 
