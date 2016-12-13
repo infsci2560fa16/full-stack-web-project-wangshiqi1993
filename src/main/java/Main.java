@@ -102,27 +102,24 @@ get("/check_login", (request, response) -> {
           connection = DatabaseUrl.extract().getConnection();
           Statement stmts = connection.createStatement();
           
-          ResultSet rss = stmts.executeQuery("SELECT * FROM users WHERE email=email");
+          ResultSet rss = stmts.executeQuery("SELECT * FROM users");
           //ArrayList<String> outputs = new ArrayList<String>();
-          String db_password= new String();
+          String db_email;
+          String db_password;
           while (rss.next()){
+            db_email=rss.getString("login");
             db_password=rss.getString("password");
-          }
-          // while (rss.next()) {
-          //   outputs.add( "Email: " + rss.getString("email"));
-          //   outputs.add( "Password: " + rss.getString("password"));
-          //   outputs.add( "FirstName: " + rss.getString("firstname"));
-          //   outputs.add( "LastName: " + rss.getString("lastname"));
-          // }
-          
-          if(password.equals(db_password)){
+
+            if(db_email.equals(email) && db_password.equals(password)){
             attributes.put("message", "Login Success!!");
             return new ModelAndView(attributes, "user_info.ftl");
-          }
-          else {
-            attributes.put("message", "Email and Password not match");
-            return new ModelAndView(attributes, "login.ftl");
+            //response.sendRedirect("AddToShoppingCart.jsp");	
             }
+          }
+
+          attributes.put("message", "Wrong Email or Password!!");
+          return new ModelAndView(attributes, "login.ftl");
+
 
 
           //attributes.put("results", outputs);
