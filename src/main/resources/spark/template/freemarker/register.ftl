@@ -12,7 +12,7 @@
 			  
         <section class="card register">
   <h2 style="display: none;">register</h2>
-  <form id="signupform" method='POST' action='/insert_users'>>
+  <form  id="signupform" name="myform" method="post" action="/insert_users" onsubmit="forming('signupform');return false;">
 
     <div class="textintro">
       <h1>Register</h1>
