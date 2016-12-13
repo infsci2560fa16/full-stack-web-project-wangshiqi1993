@@ -32,7 +32,7 @@
                 </fieldset>
 
             <button type="submit" onclick="loginCheck()">Login</button>
-            <p>If you don't have an account, please <a href="register.html">register</a></p>
+            <p>If you don't have an account, please <a href="/register">register</a></p>
 
             </form>
 

@@ -5,12 +5,13 @@
 </head>
 
 <body>
-<#include "header2.ftl">
-  <#include "nav.ftl">
+  <div id="page">
+    <#include "header2.ftl">
+      <#include "nav.ftl">
 
-<div class="container">
-  ${message}
-</div>
-
+    <div class="container">
+      ${message}
+    </div>
+  </div>
 </body>
 </html>

@@ -11,12 +11,12 @@
         <#include "nav.ftl">
 			  
         <section class="card register">
-  <h2 style="display: none;">register</h2>
-  <form  id="signupform" name="myform" method="post" action="/insert_users" onsubmit="forming('signupform');return false;">
+        <h2 style="display: none;">register</h2>
+        <form  id="signupform" name="myform" method="post" action="/insert_users" onsubmit="forming('signupform');return false;">
 
-    <div class="textintro">
-      <h1>Register</h1>
-    </div>
+        <div class="textintro">
+          <h1>Register</h1>
+        </div>
 
     <fieldset>
       <p>
@@ -39,7 +39,7 @@
     </fieldset>
 
     <button type="submit" onclick=registerCheck()>Register</button>
-    <p>If you already have an account, please <a href="login.ftl">login</a></p>
+    <p>If you already have an account, please <a href="/login">login</a></p>
   </form>
 </section>
 
