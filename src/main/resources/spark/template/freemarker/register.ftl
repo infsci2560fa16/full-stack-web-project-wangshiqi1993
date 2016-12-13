@@ -21,19 +21,19 @@
     <fieldset>
       <p>
         <label class="control-lable" for="email">Email:</label>
-        <input id="email" type="email" name="email" placeholder="Email">
+        <input id="email" type="email" name="email" value="email" placeholder="Email">
       </p>
       <p>
         <label class="control-lable" for="psw">Passwords:</label>
-        <input id="psw" type="password" name="password" placeholder="Password">
+        <input id="psw" type="password" name="password" value="password" placeholder="Password">
       </p>  
       <p>
         <label class="control-lable" for="first">First Name:</label>
-        <input id="first" type="text" name="firstname" placeholder="First Name">
+        <input id="first" type="text" name="firstname" value="firstname" placeholder="First Name">
       </p>
       <p>
         <label class="control-lable" for="last">Last Name:</label>
-        <input id="last" type="text" name="lastname" placeholder="Last Name">
+        <input id="last" type="text" name="lastname" value="lastname" placeholder="Last Name">
       </p>
 
     </fieldset>

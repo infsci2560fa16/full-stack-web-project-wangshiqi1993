@@ -52,38 +52,21 @@ public class Main {
 
     post("/insert_users", (request, response) -> {
 
-      String firstName = request.queryParams("firstname");
-      String lastName = request.queryParams("lastname");
-      String email = request.queryParams("email");
-      String password = request.queryParams("password");
-
       Connection connection = null;
-      PreparedStatement pst = null;
-
       Map<String, Object> attributes = new HashMap<>();
-
-      try{
-
-        connection = DatabaseUrl.extract().getConnection();
-        String sql = "INSERT INTO users(firstName, lastName, email, password) VALUES(?, ?, ?, ?)";
-        pst = connection.prepareStatement(sql);
-
-        pst.setString(1, firstName);
-        pst.setString(2, lastName);
-        pst.setString(3, email);
-        pst.setString(4, password);
-
-        pst.executeUpdate();
-
-        attributes.put("message", "Thank you for registering");
-
-        return new ModelAndView(attributes, "error.ftl");
-      } catch (Exception e){
-        attributes.put("message", "There was an error" + e);
-        return new ModelAndView(attributes, "error.ftl");
-      } finally {
-        if (connection != null) try{connection.close();} catch(SQLException e){}
-      }
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          stmts.executeUpdate("INSERT INTO users VALUES (DEFAULT,'" + request.queryParams("email") + "','" + request.queryParams("password") + "','" + request.queryParams("firstname") + "','" + request.queryParams("lastname") + "')");
+          return new ModelAndView(attributes, "db.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
     }, new FreeMarkerEngine());
 
 
