@@ -54,18 +54,33 @@ public class Main {
 
       String email = request.queryParams("email");
       String password = request.queryParams("password");
-      String firstName = request.queryParams("firstname");
-      String lastName = request.queryParams("lastname");
+      String firstname = request.queryParams("firstname");
+      String lastname = request.queryParams("lastname");
       
 
       Connection connection = null;
+      PreparedStatement pst = null;
+
       Map<String, Object> attributes = new HashMap<>();
         try {
           connection = DatabaseUrl.extract().getConnection();
-          Statement stmts = connection.createStatement();
-          stmts.executeUpdate("CREATE TABLE IF NOT EXISTS users (email VARCHAR(255),password VARCHAR(255),firstname VARCHAR(255), lastname VARCHAR(255))");
-          stmts.executeUpdate("INSERT INTO users VALUES (email,password,firstname,lastname)");
-          return new ModelAndView(attributes, "db.ftl");
+          // Statement stmts = connection.createStatement();
+          // stmts.executeUpdate("CREATE TABLE IF NOT EXISTS users (email VARCHAR(255),password VARCHAR(255),firstname VARCHAR(255), lastname VARCHAR(255))");
+          // stmts.executeUpdate("INSERT INTO users (email,password,firstname,lastname) VALUES (Email,Password,Firstname,Lastname)");
+          // return new ModelAndView(attributes, "db.ftl");
+          String sql = "INSERT INTO users(email, password, firstname, lastname) VALUES(?, ?, ?, ?)";
+          pst = connection.prepareStatement(sql);
+
+          pst.setString(1, email);
+          pst.setString(2, password);
+          pst.setString(3, firstname);
+          pst.setString(4, lastname);
+
+          pst.executeUpdate();
+
+          attributes.put("message", "Success!! Thank you for registering");
+          return new ModelAndView(attributes, "error.ftl");
+
         } 
         catch (Exception e) {
           attributes.put("message", "There was an error: " + e);
