@@ -224,6 +224,209 @@ get("/check_login", (request, response) -> {
           if (connection != null) try{connection.close();} catch(SQLException e){}
         }
     }, new FreeMarkerEngine());
+
+    get("/db_news_energy", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news WHERE type='energy'");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
+
+    get("/db_news_healthcare", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news WHERE type='healthcare'");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
+
+    get("/db_news_business", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news WHERE type='business'");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
+
+    get("/db_news_telecom", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news WHERE type='telecom'");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
+
+    get("/db_news_ch", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news WHERE type='ch'");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
+
+    get("/db_news_cs", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news WHERE type='cs'");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
+
+    get("/db_news_industrials", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news WHERE type='industrials'");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
   }
 
 }

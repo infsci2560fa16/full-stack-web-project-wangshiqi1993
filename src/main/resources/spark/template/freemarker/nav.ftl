@@ -2,11 +2,11 @@
 				<ul>
 
           <li>
-              <a title="FinanceHome" href="index.html">Finace Home</a>
+              <a title="FinanceHome" href="/index">Finace Home</a>
           </li>
 
 					<li>
-					    <a  title="Stocks" href="#">Stocks</a>
+					    <a  title="Stocks" href="/db_stocks">Stocks</a>
 					    <ul>
 					    	<li>
 					    		<a title="Stocks:Gainers" href="#">Stocks:Gainers</a>
@@ -18,35 +18,35 @@
 					</li>
 					
 					<li>
-					    <a title="My Portfolio" href="login.ftl">My Portfolio</a>
+					    <a title="My Portfolio" href="/login">My Portfolio</a>
 					</li>
           
           <li>
-					    <a title="Industry News" href="#">Industry News</a>
+					    <a title="Industry News" href="db_news">Industry News</a>
 					    <ul>
 					    	<li>
-					    		<a title="Energy" href="#">Energy</a>
+					    		<a title="Energy" href="/db_news_energy">Energy</a>
 					    	</li>
 					    	<li>
-					    		<a title="Financial" href="#">Financial</a>
+					    		<a title="Financial" href="/db_news_financial">Financial</a>
 					    	</li>
                 <li>
-					    		<a title="Healthcare" href="#">Healthcare</a>
+					    		<a title="Healthcare" href="/healthcare">Healthcare</a>
 					    	</li>
                 <li>
-					    		<a title="Business Service" href="#">Business Service</a>
+					    		<a title="Business Service" href="/db_news_business">Business Service</a>
 					    	</li>
                 <li>
-					    		<a title="Telecom & Utilities" href="#">Telecom & Utilities</a>
+					    		<a title="Telecom & Utilities" href="/db_news_telecom">Telecom & Utilities</a>
 					    	</li>
                 <li>
-					    		<a title="Computer Hardware & Electronics" href="#">Computer Hardware & Electronics</a>
+					    		<a title="Computer Hardware & Electronics" href="/db_news_ch">Computer Hardware & Electronics</a>
 					    	</li>
                 <li>
-					    		<a title="Computer Software & Services" href="#">Computer Software & Services</a>
+					    		<a title="Computer Software & Services" href="/db_news_cs">Computer Software & Services</a>
 					    	</li>
                 <li>
-					    		<a title="Industrials" href="#">Industrials</a>
+					    		<a title="Industrials" href="/db_news_industrials">Industrials</a>
 					    	</li>
 					    </ul>
 					</li>
