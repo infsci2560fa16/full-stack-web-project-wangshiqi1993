@@ -9,9 +9,7 @@
  	<div id="page">
  		<#include "header2.ftl">
         <#include "nav.ftl">
-	    <div class="container">
-            ${message}
-        </div>
+			  
         <section class="card login">
 				<h2 style="display: none;">login</h2>
                 <form id="loginform" name="myform" method="get" action="/check_login" onsubmit="forming('loginform');return false;">

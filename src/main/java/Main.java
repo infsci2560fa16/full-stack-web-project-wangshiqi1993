@@ -118,7 +118,7 @@ get("/check_login", (request, response) -> {
           }
 
           attributes.put("message", "Wrong Email or Password!!");
-          return new ModelAndView(attributes, "login.ftl");
+          return new ModelAndView(attributes, "error.ftl");
 
         } 
         catch (Exception e) {
