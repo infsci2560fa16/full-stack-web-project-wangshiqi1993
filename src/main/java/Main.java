@@ -190,7 +190,40 @@ get("/check_login", (request, response) -> {
           if (connection != null) try{connection.close();} catch(SQLException e){}
         }
     }, new FreeMarkerEngine());
-
+    
+    get("/db_news", (req, res) -> {
+      Connection connection = null;
+      Map<String, Object> attributes = new HashMap<>();
+        try {
+          connection = DatabaseUrl.extract().getConnection();
+          Statement stmts = connection.createStatement();
+          //heroku pg:psql
+          //CREATE TABLE news(title VARCHAR(255),type VARCHAR(20),content VARCHAR(2000),time timestamp);
+          //INSERT INTO news(title,type,content,time) VALUES ('‘The Russia/CIA card’: Trump doubles down on dismissal of Kremlin influencing election','financial','President-elect Donald Trump doubled down on his dismissal of the Central Intelligence Agency’s reported assessment that Russia interfered in the U.S. presidential election, calling it a “card” being played by the Democrats to undercut his stunning victory over Hillary Clinton. “Can you imagine if the election results were the opposite and WE tried to play the Russia/CIA card,” Trump tweeted on Monday. “It would be called conspiracy theory!”The Washington Post reported on Friday that the CIA believes Russia’s hacking of Democratic National Committee emails was done to help Trump win the White House. In an interview with “Fox News Sunday,” Trump called the assessment “ridiculous.” “Hacking is very interesting,” Trump said. “Once they hack, if you don’t catch them in the act you’re not going to catch them. They have no idea if it’s Russia or China or somebody. It could be somebody sitting in a bed someplace. I mean, they have no idea.” The president-elect reiterated that point on Twitter while tossing in a falsehood.',now());
+          //INSERT INTO news(title,type,content,time) VALUES ('How 2 Math Grads are Disrupting the Auto Insurance Industry','cs','Philadelphia, Pennsylvania – Recent studies indicate that drivers are paying too much for car insurance. Are you aware that you could receive a large discount just for using this new startup's service? In addition, if you are currently insured and live in a qualified ZIP code you may get an extremely high discount. For a long time, there was no easy way to compare quotes from all of these huge car insurance companies. You had to check one site, then jump to another and enter all of your information all over again. Drivers were stuck doing all the work to save money. Now, all that has changed. Thanks to EverQuote™, the information you need to help you save can be found in one place. Just like Expedia or Orbitz saves you money on travel and flights, EverQuote™ saves you money on car insurance. What exactly do you need to do? Here is one easy rule to follow. You have to compare quotes. Don’t even consider buying car insurance without doing this first. After all the results we came across, we just couldn’t believe how many drivers have been overpaying. And with free services like EverQuote™, comparing quotes today so that you aren’t accidentally costing yourself money is a breeze.',now());
+          //INSERT INTO news(title,type,content,time) VALUES ('Oakland warehouse fire leads to crackdown on illegal artist spaces around the country','industrials','The massive fire that tore through a converted warehouse in Oakland, killing 36 people in the deadliest blaze in the United States in more than a decade, has officials examining similar illegal spaces — and the artists who create, perform and, in many cases, live in them bracing for a crackdown. Authorities are still trying to determine what caused the Dec. 2 fire, which broke out during a concert inside what was known as the Ghost Ship, a 4,000-square-foot building that former tenants described as “a death trap with few exits, a rickety makeshift staircase, piles of driftwood and a labyrinth of electrical cords.” In Baltimore, dozens of artists living in a building known as the Bell Foundry were evicted last week after the city said it received a complaint “about individuals living there in deplorable conditions.” “The main electrical source had illegal, dangerous connections; there were extension cords used to feed multiple fixtures,” said Katy Byrne, a spokeswoman for Baltimore’s Department of Housing and Community Development. “None of the electrical systems was grounded.” In Denver, fire officials shut down Rhinoceropolis, a landmark “DIY” performance space, and evicted five people who had been living in illegal lofts on Thursday after it was deemed “unsafe.”',now());
+          
+          ResultSet rss = stmts.executeQuery("SELECT * FROM news");
+          ArrayList<String> outputs = new ArrayList<String>();
+          while (rss.next()) { 
+            //title,type,content,time
+            outputs.add( "Title: " + rss.getString("title"));
+            outputs.add( "Type: " + rss.getString("type"));
+            outputs.add( "Content: " + rss.getString("content"));
+            outputs.add( "time: " + rss.getInt("time"));
+            
+          }
+          attributes.put("results", outputs);
+          return new ModelAndView(attributes, "db_news.ftl");
+        } 
+        catch (Exception e) {
+          attributes.put("message", "There was an error: " + e);
+          return new ModelAndView(attributes, "error.ftl");
+        }  
+        finally {
+          if (connection != null) try{connection.close();} catch(SQLException e){}
+        }
+    }, new FreeMarkerEngine());
   }
 
 }
