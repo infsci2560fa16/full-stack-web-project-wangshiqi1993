@@ -93,39 +93,6 @@ public class Main {
 
 
 get("/check_login", (request, response) -> {
-
-    //   String login_email = request.queryParams("email");
-    //   String login_password = request.queryParams("password");
-
-    //   Connection connection = null;
-    //   String db_password;
-
-    //   Map<String, Object> attributes = new HashMap<>();
-    //     try {
-    //       connection = DatabaseUrl.extract().getConnection();
-    //       String sql = "SELECT password FROM users WHERE email= login_email";
-    //       String db_password = connection.prepareStatement(sql);
-
-    //       if(login_password.equals(db_password)){
-    //         attributes.put("message", "Login Success!!");
-    //         return new ModelAndView(attributes, "user_info.ftl");
-    //       }
-    //       else {
-    //         attributes.put("message", "Email and Password not match");
-
-    //         }
-          
-
-    //     } 
-    //     catch (Exception e) {
-    //       attributes.put("message", "There was an error: " + e);
-    //       return new ModelAndView(attributes, "error.ftl");
-    //     }  
-    //     finally {
-    //       if (connection != null) try{connection.close();} catch(SQLException e){}
-    //     }
-    // }, new FreeMarkerEngine());
-
       String email = request.queryParams("email");
       String password = request.queryParams("password");
       Connection connection = null;
@@ -137,7 +104,10 @@ get("/check_login", (request, response) -> {
           
           ResultSet rss = stmts.executeQuery("SELECT * FROM users WHERE email=email");
           //ArrayList<String> outputs = new ArrayList<String>();
-          String db_password=rss.getString("password");
+          String db_password= new String();
+          while (rss.next()){
+            db_password=rss.getString("password");
+          }
           // while (rss.next()) {
           //   outputs.add( "Email: " + rss.getString("email"));
           //   outputs.add( "Password: " + rss.getString("password"));
