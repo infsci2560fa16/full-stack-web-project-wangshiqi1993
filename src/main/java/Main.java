@@ -57,8 +57,8 @@ public class Main {
         try {
           connection = DatabaseUrl.extract().getConnection();
           Statement stmts = connection.createStatement();
-          stmts.executeUpdate("CREATE TABLE IF NOT EXISTS users (users timestamp)");
-          stmts.executeUpdate("INSERT INTO users VALUES (DEFAULT,'" + request.queryParams("email") + "','" + request.queryParams("password") + "','" + request.queryParams("firstname") + "','" + request.queryParams("lastname") + "')");
+          stmts.executeUpdate("CREATE TABLE IF NOT EXISTS users (email VARCHAR(255),password VARCHAR(255),firstname VARCHAR(255), lastname VARCHAR(255))");
+          stmts.executeUpdate("INSERT INTO users VALUES ('" + request.queryParams("email") + "','" + request.queryParams("password") + "','" + request.queryParams("firstname") + "','" + request.queryParams("lastname") + "')");
           return new ModelAndView(attributes, "db.ftl");
         } 
         catch (Exception e) {

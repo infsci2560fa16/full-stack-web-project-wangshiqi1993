@@ -5,7 +5,7 @@
 </head>
 
 <body>
-
+<#include "header2.ftl">
   <#include "nav.ftl">
 
 <div class="container">
