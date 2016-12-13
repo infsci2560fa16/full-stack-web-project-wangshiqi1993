@@ -3,7 +3,7 @@ function loginCheck() {
 
     // Get the value of the input field with id
     x = document.getElementById("email").value;
-    y = document.getElementById("psw").value;
+    y = document.getElementById("password").value;
 
     if (x.length===0 || y.length===0) {
         alert("email and password cannot be empty");

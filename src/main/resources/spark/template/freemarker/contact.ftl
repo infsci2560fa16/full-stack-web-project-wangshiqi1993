@@ -7,8 +7,8 @@
 <body>
 
  	<div id="page">
- 		<#include "header2.ftl">
-    <#include "nav.ftl">
+ 	<#include "header2.ftl">
+        <#include "nav.ftl">
 			  
 <section class="card container">
         <div class="row">

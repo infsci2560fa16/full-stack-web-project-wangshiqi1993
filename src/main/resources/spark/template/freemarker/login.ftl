@@ -26,7 +26,7 @@
                 </p>
                 <p>
                 <label class="control-lable" for="psw">Passwords:</label>
-                <input id="psw" type="password" name="password" placeholder="Password">
+                <input id="password" type="password" name="password" placeholder="Password">
                 </p>  
 
                 </fieldset>
