@@ -107,7 +107,7 @@ get("/check_login", (request, response) -> {
           String db_email;
           String db_password;
           while (rss.next()){
-            db_email=rss.getString("login");
+            db_email=rss.getString("email");
             db_password=rss.getString("password");
 
             if(db_email.equals(email) && db_password.equals(password)){
