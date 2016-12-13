@@ -126,8 +126,8 @@ get("/check_login", (request, response) -> {
     //     }
     // }, new FreeMarkerEngine());
 
-      String login_email = request.queryParams("email");
-      String login_password = request.queryParams("password");
+      String email = request.queryParams("email");
+      String password = request.queryParams("password");
       Connection connection = null;
       
       Map<String, Object> attributes = new HashMap<>();
@@ -135,7 +135,7 @@ get("/check_login", (request, response) -> {
           connection = DatabaseUrl.extract().getConnection();
           Statement stmts = connection.createStatement();
           
-          ResultSet rss = stmts.executeQuery("SELECT * FROM users WHERE email=login_email");
+          ResultSet rss = stmts.executeQuery("SELECT * FROM users WHERE email=email");
           //ArrayList<String> outputs = new ArrayList<String>();
           String db_password=rss.getString("password");
           // while (rss.next()) {
@@ -145,7 +145,7 @@ get("/check_login", (request, response) -> {
           //   outputs.add( "LastName: " + rss.getString("lastname"));
           // }
           
-          if(login_password.equals(db_password)){
+          if(password.equals(db_password)){
             attributes.put("message", "Login Success!!");
             return new ModelAndView(attributes, "user_info.ftl");
           }
