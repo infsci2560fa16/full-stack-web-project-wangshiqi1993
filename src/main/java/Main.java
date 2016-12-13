@@ -210,7 +210,7 @@ get("/check_login", (request, response) -> {
             outputs.add( "Title: " + rss.getString("title"));
             outputs.add( "Type: " + rss.getString("type"));
             outputs.add( "Content: " + rss.getString("content"));
-            outputs.add( "time: " + rss.getInt("time"));
+            outputs.add( "time: " + rss.getTimestamp("time"));
             
           }
           attributes.put("results", outputs);
