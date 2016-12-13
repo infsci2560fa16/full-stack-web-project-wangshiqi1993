@@ -12,7 +12,7 @@
 			  
         <section class="card login">
 				<h2 style="display: none;">login</h2>
-                <form name="myform"novalidate>
+                <form id="loginform" name="myform" method="get" action="/check_login" onsubmit="forming('loginform');return false;">
 
                 <div class="textintro">
                     <h1>Login to check your account</h1>
