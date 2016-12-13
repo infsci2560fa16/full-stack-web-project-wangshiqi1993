@@ -12,9 +12,18 @@
     <div class="container">
       <h1>Database Output</h1>
        <ul>
-        <#list results as x>
-          <li> ${x} </li>
+
+        <#list results as results>
+
+          <div class="results">
+            <h2> ${result.title} </h2>
+            <p> ${result.content}</p>
+            <i>Published on the ${results.time}</i>
+          </div>
+          
+
         </#list>
+
         </ul>
     </div>
 
