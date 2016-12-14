@@ -176,13 +176,13 @@ get("/check_login", (request, response) -> {
           //ResultSet rss = stmts.executeQuery("SELECT * FROM stocks");
           ResultSet rss = stmts.executeQuery("SELECT table_to_xml('stocks', true, false, '')");
           ArrayList<String> outputs = new ArrayList<String>();
-          while (rss.next()) {
-            outputs.add( "Name: " + rss.getString("name"));
-            outputs.add( "Price: " + rss.getInt("price"));
-            outputs.add( "Gainer/Loser: " + rss.getString("gorl"));
-            outputs.add( "Volumn: " + rss.getInt("volumn"));
-            outputs.add( "% Change:" + rss.getInt("change") + "%");
-          }
+          // while (rss.next()) {
+          //   outputs.add( "Name: " + rss.getString("name"));
+          //   outputs.add( "Price: " + rss.getInt("price"));
+          //   outputs.add( "Gainer/Loser: " + rss.getString("gorl"));
+          //   outputs.add( "Volumn: " + rss.getInt("volumn"));
+          //   outputs.add( "% Change:" + rss.getInt("change") + "%");
+          // }
           attributes.put("results", outputs);
           return new ModelAndView(attributes, "db_stocks.ftl");
         } 
