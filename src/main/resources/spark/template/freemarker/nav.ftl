@@ -9,10 +9,10 @@
 					    <a  title="Stocks" href="/db_stocks">Stocks</a>
 					    <ul>
 					    	<li>
-					    		<a title="Stocks:Gainers" href="#">Stocks:Gainers</a>
+					    		<a title="Stocks:Gainers" href="/db_stocks_gainers">Stocks:Gainers</a>
 					    	</li>
 					    	<li>
-					    		<a title="Stocks:Losers" href="#">Stocks:Losers</a>
+					    		<a title="Stocks:Losers" href="/db_stocks_losers">Stocks:Losers</a>
 					    	</li>
 					    </ul>
 					</li>
