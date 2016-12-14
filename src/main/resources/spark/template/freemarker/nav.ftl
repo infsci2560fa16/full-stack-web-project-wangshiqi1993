@@ -31,7 +31,7 @@
 					    		<a title="Financial" href="/db_news_financial">Financial</a>
 					    	</li>
                 <li>
-					    		<a title="Healthcare" href="/healthcare">Healthcare</a>
+					    		<a title="Healthcare" href="/db_news_healthcare">Healthcare</a>
 					    	</li>
                 <li>
 					    		<a title="Business Service" href="/db_news_business">Business Service</a>
