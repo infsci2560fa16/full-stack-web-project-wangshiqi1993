@@ -170,7 +170,11 @@ get("/check_login", (request, response) -> {
           //INSERT INTO stocks(name,price,gorl,volumn,change) VALUES ('GLF',2.10,'G',443998,23.24);
           //INSERT INTO stocks(name,price,gorl,volumn,change) VALUES ('OPGN',1.25,'G',260282,14.68);
           //INSERT INTO stocks(name,price,gorl,volumn,change) VALUES ('PRTO',2.62,'L',37-51,73.48);
-          ResultSet rss = stmts.executeQuery("SELECT * FROM stocks");
+          
+          
+          //SELECT table_to_xml('stocks', true, false, '');
+          //ResultSet rss = stmts.executeQuery("SELECT * FROM stocks");
+          ResultSet rss = stmts.executeQuery("SELECT table_to_xml('stocks', true, false, '')");
           ArrayList<String> outputs = new ArrayList<String>();
           while (rss.next()) {
             outputs.add( "Name: " + rss.getString("name"));
