@@ -2,7 +2,7 @@
 				<ul>
 
           <li>
-              <a title="FinanceHome" href="/index">Finace Home</a>
+              <a title="FinanceHome" href="/">Finace Home</a>
           </li>
 
 					<li>
@@ -52,7 +52,7 @@
 					</li>
 
 					<li>
-					    <a title="Contact Us" href="contact.ftl">Contact Us</a>
+					    <a title="Contact Us" href="/contact">Contact Us</a>
 					</li>
 
 				</ul>
