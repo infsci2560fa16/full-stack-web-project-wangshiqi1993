@@ -184,7 +184,7 @@ get("/check_login", (request, response) -> {
           //   outputs.add( "% Change:" + rss.getInt("change") + "%");
           // }
           attributes.put("results", outputs);
-          return new ModelAndView(attributes, "db_stocks.ftl");
+          return new ModelAndView(attributes, "stocks.json");
         } 
         catch (Exception e) {
           attributes.put("message", "There was an error: " + e);
