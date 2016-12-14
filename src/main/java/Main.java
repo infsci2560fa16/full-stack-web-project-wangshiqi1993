@@ -191,7 +191,10 @@ get("/check_login", (request, response) -> {
         }
     }, new FreeMarkerEngine());
     
-
+    private static boolean shouldReturnHtml(Request request) {
+      String accept = request.headers("Accept");
+      return accept != null && accept.contains("text/html");
+    }
     FreeMarkerEngine freeMarkerEngine = new FreeMarkerEngine();
     Configuration freeMarkerConfiguration = new Configuration();
     freeMarkerConfiguration.setTemplateLoader(new ClassTemplateLoader(BlogService.class, "/"));
@@ -209,7 +212,7 @@ get("/check_login", (request, response) -> {
         return dataToJson(model.getAllPosts());
     }
     });
-    
+
 
     get("/db_news", (req, res) -> {
       Connection connection = null;
