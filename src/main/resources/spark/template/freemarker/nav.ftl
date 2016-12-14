@@ -2,7 +2,7 @@
 				<ul>
 
           <li>
-              <a title="FinanceHome" href="/">Finace Home</a>
+              <a title="FinanceHome" href="/index">Finace Home</a>
           </li>
 
 					<li>

@@ -31,6 +31,12 @@ public class Main {
             return new ModelAndView(attributes, "index.ftl");
         }, new FreeMarkerEngine());
 
+    get("/index", (request, response) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            // attributes.put("message", "Hello World!");
+
+            return new ModelAndView(attributes, "index.ftl");
+        }, new FreeMarkerEngine());
 
     get("/category", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
