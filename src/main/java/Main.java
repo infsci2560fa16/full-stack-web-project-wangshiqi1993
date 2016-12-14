@@ -174,17 +174,17 @@ get("/check_login", (request, response) -> {
           
           //SELECT table_to_xml('stocks', true, false, '');
           //ResultSet rss = stmts.executeQuery("SELECT * FROM stocks");
-          ResultSet rss = stmts.executeQuery("SELECT table_to_xml('stocks', true, false, '')");
+          ResultSet rss = stmts.executeQuery("SELECT * FROM stocks");
           ArrayList<String> outputs = new ArrayList<String>();
-          // while (rss.next()) {
-          //   outputs.add( "Name: " + rss.getString("name"));
-          //   outputs.add( "Price: " + rss.getInt("price"));
-          //   outputs.add( "Gainer/Loser: " + rss.getString("gorl"));
-          //   outputs.add( "Volumn: " + rss.getInt("volumn"));
-          //   outputs.add( "% Change:" + rss.getInt("change") + "%");
-          // }
+          while (rss.next()) {
+            outputs.add( "Name: " + rss.getString("name"));
+            outputs.add( "Price: " + rss.getInt("price"));
+            outputs.add( "Gainer/Loser: " + rss.getString("gorl"));
+            outputs.add( "Volumn: " + rss.getInt("volumn"));
+            outputs.add( "% Change:" + rss.getInt("change") + "%");
+          }
           attributes.put("results", outputs);
-          return new ModelAndView(attributes, "stocks.json");
+          return new ModelAndView(attributes, "db_stocks.ftl");
         } 
         catch (Exception e) {
           attributes.put("message", "There was an error: " + e);
